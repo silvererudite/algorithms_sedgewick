@@ -19,9 +19,16 @@ public class UnionFind {
     public boolean isConnected(int firstElem, int secondElem){
         return this.connectedComponentsId[firstElem] == this.connectedComponentsId[secondElem];
     }
-
-    public int numComponents(){
-        return 0;
+    public int numComponents() {
+        boolean[] uniqueComponents = new boolean[this.connectedComponentsId.length];
+        int count = 0;
+        for (int id : this.connectedComponentsId) {
+            if (!uniqueComponents[id]) {
+                uniqueComponents[id] = true;
+                count++;
+            }
+        }
+        return count;
     }
     public int findComponent(int elem){
         return this.connectedComponentsId[elem];

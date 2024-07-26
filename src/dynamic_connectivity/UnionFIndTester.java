@@ -36,7 +36,8 @@ public class UnionFIndTester {
         quickFind.union(4, 8);
         System.out.println("After performing union");
         quickFind.printComponents();
-
+        System.out.println("=============================");
+        System.out.println("Total connected components: "+quickFind.numComponents());
 
 
     }

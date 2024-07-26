@@ -13,11 +13,10 @@ public class QuickFind extends UnionFind{
        }
        int firstComponent = super.getConnectedComponentsId()[firstElem];
        int secondComponent = super.getConnectedComponentsId()[secondElem];
-       int requiredComponentId = Math.min(firstComponent, secondComponent);
-
-       super.updateComponent(requiredComponentId, secondElem);
-
-
-
+        for (int i = 0; i < super.getConnectedComponentsId().length; i++) {
+            if (super.getConnectedComponentsId()[i] == firstComponent) {
+                super.updateComponent(secondComponent, i);
+            }
+        }
     }
 }
